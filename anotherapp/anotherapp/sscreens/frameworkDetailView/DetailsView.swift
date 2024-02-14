@@ -15,17 +15,7 @@ struct DetailsView: View {
     var body: some View {
         
         VStack{
-            HStack{
-                Spacer()
-                Button{
-                    isShowing = false
-                } label: {
-                    Image(systemName: "xmark")
-                        .foregroundColor(Color(.label))
-                        .imageScale(.large)
-                        .frame(width: 44, height: 44, alignment: .topTrailing)
-                }
-            }.padding()
+            XdismisButton(isShowing: $isShowing)
             
             Spacer()
             TitleView(framework: framework)
@@ -37,7 +27,7 @@ struct DetailsView: View {
                 isShowingSafari = true
             })
             
-        }.sheet(isPresented: $isShowingSafari, content: {
+        }.fullScreenCover(isPresented: $isShowingSafari, content: {
             SafariView(url: URL(string: framework.url) ?? URL(string: "https://portafolio-2023-iota.vercel.app/")!)
         })
     }
