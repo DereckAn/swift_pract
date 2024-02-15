@@ -14,7 +14,8 @@ struct AppGridView: View {
     var body: some View {
         NavigationView{
             ScrollView{
-                frameworkGrid(viewModel:   viewModel)
+//                frameworkGrid(viewModel: viewModel)
+                frameworkList(viewModel: viewModel)
             }
             .navigationTitle("🍎 Frameworks")
             .sheet(isPresented: $viewModel.isShowing){
